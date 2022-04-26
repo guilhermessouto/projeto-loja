@@ -1,6 +1,3 @@
-//<a href="produto/produto01.html"></a>
-//https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500
-
 let produtos = {
     item01Imagem: 'https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     item01Nome: 'Camisa Preta',
@@ -20,13 +17,16 @@ let item01 = {
 
 let addremove = {
     remover01: '-',
-    quantidade01: 1,
+    quantidade01: 0,
     adicionar01: '+',
     //-----------------------------------------------------------//
     remover02: '-',
-    quantidade02: 1,
+    quantidade02: 0,
     adicionar02: '+'
 }
+
+
+
 
 
 document.getElementById('root').innerHTML = `
@@ -61,7 +61,13 @@ document.getElementById('root').innerHTML = `
     </div>
     `
 
+
+
+
+
 function additem01(){
+    addremove.quantidade01 = 1
+
     document.getElementById('item01').innerHTML +=
     `
         <div class='itens'>
@@ -89,11 +95,14 @@ function additem01(){
 
     document.getElementById('addcar01').onclick = null
 
-    document.getElementById('totalOpencar').innerHTML = `R$`
+    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+
 }
 
 
 function additem02(){
+    addremove.quantidade02 = 1
+
     document.getElementById('item01').innerHTML += 
     `
         <div class='itens'>
@@ -119,6 +128,8 @@ function additem02(){
     `
 
     document.getElementById('addcar02').onclick = null
+
+    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
 }
 
 
@@ -132,16 +143,23 @@ function removequantidade01(){
 
     textQuantidadeUm.innerHTML = `${addremove.quantidade01}`
 
+    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+
     if(addremove.quantidade01 <= 1){
         addremove.quantidade01 = 1
         textQuantidadeUm.innerHTML = `${addremove.quantidade01}`
+        totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
     }
+
+    
 }
 
 function addquantidade01(){
     addremove.quantidade01 ++
 
     textQuantidadeUm.innerHTML = `${addremove.quantidade01}`
+
+    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
 }
 
 
@@ -151,9 +169,12 @@ function removequantidade02(){
 
     textQuantidadeDois.innerHTML = `${addremove.quantidade02}`
 
+    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+
     if(addremove.quantidade02 <= 1){
         addremove.quantidade02 = 1
         textQuantidadeDois.innerHTML = `${addremove.quantidade02}`
+        totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
     }
 }
 
@@ -161,6 +182,8 @@ function addquantidade02(){
     addremove.quantidade02 ++
 
     textQuantidadeDois.innerHTML = `${addremove.quantidade02}`
+
+    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
 }
 
 
