@@ -23,6 +23,46 @@ let addremove = {
 
 
 document.getElementById('root').innerHTML = `
+    <div class="intro" id="intro">
+        <div class="header-intro">
+            <h1>Logo</h1>
+        </div>
+
+        <div class="container-intro">
+            <div class="container-text">
+                <h1>Our new collection</h1>
+                <p>Shop the latest fashion </p>
+                <button onclick="openShop()">Shop now</button>
+            </div>
+        </div>
+    </div>
+
+
+    <header>
+        <h1>Logo</h1>
+
+        <input type="text" placeholder="O que você procura hoje ?">
+
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#" id="login">Login</a>
+
+            <div class="icon-openCar"onclick="opencarCSS()">
+                    <img src="https://www.grupopecini.com.br/images/carrinho.png">
+                </div>
+
+            <div class="carrinho" id="opencar">
+                <div id='itensAdicionados'></div>
+        
+                <div class="totalDaCompra">
+                    <p>Total:</p>
+                    <p id='totalDaCompra'>R$ 0</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <div class="container">
         <div class='produtos'>
             <img src="${produtos.item01Imagem}">
@@ -38,22 +78,7 @@ document.getElementById('root').innerHTML = `
             <p id="p2">R$ ${produtos.item02Preço}</p>
             <button class="addAoCarrinho" id='addcar02' onclick='additem02()'>Adicionar ao carrinho</button>
         </div>
-    </div>
-
-    
-    
-    <div class="carrinho" id="opencar">
-        <div class="icon-openCar"onclick="opencarCSS()">
-            <img src="imagens/mais.png">
-        </div>
-
-        <div id='itensAdicionados'></div>
-
-        <div class="totalDaCompra">
-            <p>Total:</p>
-            <p id='totalDaCompra'>R$ 0</p>
-        </div>
-    </div>
+    </div> 
     `
 
 
@@ -185,5 +210,14 @@ function addquantidade02(){
 function opencarCSS(){
     let opencar = document.getElementById('opencar')
 
-    opencar.classList.toggle('open')
+    opencar.classList.toggle('opencar')
 }//função pra abrir o carrinho
+
+
+
+
+function openShop(){
+    let openShop = document.getElementById('intro')
+
+    openShop.classList.add('openshop')
+}//funçao pra fechar a intro

@@ -1,8 +1,102 @@
 *{margin: 0;
-    padding: 0;}
+    padding: 0;
+    text-decoration: none;
+    overflow: hidden;}
 
 
 body{background-color: dimgray;}
+
+
+
+/*introduçao*/
+.intro{background-color: white;
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    transition: .6s;}
+
+.header-intro{background-image: url(https://img.freepik.com/fotos-gratis/textura-grunge-com-tinta-preta_125540-899.jpg?w=900&t=st=1651049963~exp=1651050563~hmac=fb3e0b7b18d069ba6e549a6f7580e1d14a2a061c0b0aa0da11c2bc3b7ec238fd);
+    color: white;
+    text-align: center;
+    padding: 20px 0;}
+
+.container-intro{background-image: url(https://img.freepik.com/free-photo/high-fashion-look-glamor-portrait-beautiful-sexy-stylish-caucasian-young-woman-model-black-cloth_158538-1965.jpg?w=2000);
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+    margin: auto;}
+
+.container-text{position: relative;
+    top: 30%;
+    width: 80%;
+    margin: auto;}
+
+.container-text h1{font-size: 3em;
+    margin-bottom: 18px;}
+
+.container-text p{font-size: 1.3em;
+margin-bottom: 25px;}
+
+.container-text button{font-size: 1em;
+    padding: 15px 50px;
+    border: none;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    cursor: pointer;}
+
+.openshop{height: 0;}
+
+
+
+
+
+/*header*/
+header{background-image: url(https://img.freepik.com/fotos-gratis/textura-grunge-com-tinta-preta_125540-899.jpg?w=900&t=st=1651049963~exp=1651050563~hmac=fb3e0b7b18d069ba6e549a6f7580e1d14a2a061c0b0aa0da11c2bc3b7ec238fd);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;}
+
+header h1{color: white;
+    margin-right: 25px;}
+
+header input{padding: 10px;
+    padding-left: 15px;
+    width: 540px;
+    font-size: 1em;
+    border: none;
+    outline: none;}
+
+nav{display: flex;
+    align-items: center;}
+
+nav a{margin: 0 10px;
+    color: white;
+    font-size: 1.1em;}
+
+
+/*box do carrinho*/
+.carrinho{background-color: rgb(247, 247, 247);
+    position: absolute;
+    top: 68px;
+    right: 105px;
+    width: 340px;
+    height: 0;
+    transition: .3s;}
+
+/*icon do carrinho*/
+.icon-openCar{width: 35px;
+    height: 35px;
+    margin-top: 2px;
+    margin-left: 25px;
+    cursor: pointer;}
+
+.icon-openCar img{width: 30px;}
+
+
+
+
+
 
 /*container que recebe os produtos*/
 .container{display: flex;}
@@ -31,28 +125,6 @@ body{background-color: dimgray;}
 
 
 
-
-/*box do carrinho*/
-.carrinho{background-color: rgb(247, 247, 247);
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0px;
-    height: 500px;
-    transition: .5s;}
-
-/*icon do carrinho*/
-.icon-openCar{width: 25px;
-    height: 25px;
-    margin: 10px;
-    cursor: pointer;
-    position: absolute;
-    right: 0;}
-
-.icon-openCar img{width: 110%;
-    background-color: white;}
-
-
     
 .totalDaCompra{display: none;}
 
@@ -75,13 +147,10 @@ body{background-color: dimgray;}
 
     
 /*config de quando o carrinho for aberto*/
-.open{width: 340px;
+.opencar{height: 500px;
     overflow: hidden;}
-
-.open .icon-openCar{position: static;
-    transform: rotate(45deg);}
     
-.open .totalDaCompra{display: flex;
+.opencar .totalDaCompra{display: flex;
     justify-content: space-between;
     padding: 10px;
     width: 93.5%;
@@ -90,8 +159,7 @@ body{background-color: dimgray;}
     right: 0;
     bottom: 0;}
 
-.open #itensAdicionados{display: block;}
-
+.opencar #itensAdicionados{display: block;}
 
 
 
