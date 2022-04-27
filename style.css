@@ -1,32 +1,29 @@
 *{margin: 0;
     padding: 0;}
 
-/*produtos*/
+
 body{background-color: dimgray;}
 
+/*container que recebe os produtos*/
 .container{display: flex;}
 
-.item01{margin: 10px;
+
+
+
+
+/*config geral dos produtos*/
+.produtos{margin: 10px;
     background-color: darkgray;
-    padding: 10px;
-    width: 375px;}
+    padding: 10px;}
 
-.item01 img{width: 100%;
-    height: 250px;}
-
-.item02{margin: 10px;
-    background-color: darkgray;
-    padding: 10px;
-    width: 375px;}
-
-.item02 img{width: 100%;
+.produtos img{width: 100%;
     height: 250px;}
 
 #p1{margin: 10px 0;}
 
 #p2{margin: 10px 0;}
 
-.addcar{border: none;
+.addAoCarrinho{border: none;
     color: white;
     background-color:darkred;padding: 5px 10px;
     cursor: pointer;}
@@ -35,18 +32,8 @@ body{background-color: dimgray;}
 
 
 
-
-
-
-
-
-
-
-
-
-
-/*carrinho*/
-.carrinho{background-color: white;
+/*box do carrinho*/
+.carrinho{background-color: rgb(247, 247, 247);
     position: absolute;
     top: 0;
     right: 0;
@@ -54,21 +41,27 @@ body{background-color: dimgray;}
     height: 500px;
     transition: .5s;}
 
-.opencar{width: 25px;
+/*icon do carrinho*/
+.icon-openCar{width: 25px;
     height: 25px;
     margin: 10px;
     cursor: pointer;
     position: absolute;
     right: 0;}
 
-.opencar img{width: 110%;
+.icon-openCar img{width: 110%;
     background-color: white;}
 
-.totaldascompras{display: none;}
+
+    
+.totalDaCompra{display: none;}
 
 
-/*itens*/
-#item01{display: none;
+
+
+
+/*itens adicionados ao carrinho*/
+#itensAdicionados{display: none;
     margin: 2px 0;
     height: 83%;
     overflow-y: auto;}
@@ -80,14 +73,15 @@ body{background-color: dimgray;}
 
 
 
-
+    
+/*config de quando o carrinho for aberto*/
 .open{width: 340px;
     overflow: hidden;}
 
-.open .opencar{position: static;
+.open .icon-openCar{position: static;
     transform: rotate(45deg);}
     
-.open .totaldascompras{display: flex;
+.open .totalDaCompra{display: flex;
     justify-content: space-between;
     padding: 10px;
     width: 93.5%;
@@ -96,14 +90,13 @@ body{background-color: dimgray;}
     right: 0;
     bottom: 0;}
 
-.open #item01{display: block;}
+.open #itensAdicionados{display: block;}
 
 
 
 
 
-
-/*addremove*/
+/*addremove quantidade de itens dos produtos*/
 .addremove{display: flex;
     align-items: center;}
 
@@ -120,6 +113,4 @@ body{background-color: dimgray;}
     border: 1px solid black;
     border-top: none;
     padding: 10px;}
-
-
 

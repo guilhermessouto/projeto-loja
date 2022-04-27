@@ -1,18 +1,11 @@
 let produtos = {
-    item01Imagem: 'https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    item01Imagem: 'https://ae01.alicdn.com/kf/HTB1vNqcKFXXXXbMXFXXq6xXFXXXy/2014-Brand-Regular-Men-T-Shirt-anime-Spirited-Away-Customized-Picture-Tee-Shirts-Mens-Regular-Style.jpg_Q90.jpg_.webp',
     item01Nome: 'Camisa Preta',
     item01Preço: 5,
     //-----------------------------------------------------------//
-    item02Imagem: 'https://t3.ftcdn.net/jpg/01/27/95/18/360_F_127951825_t4KwrUxvASGoxmx0VVVHE3anigDafnpP.jpg',
-    item02Nome: 'Camisa Vermelha',
+    item02Imagem: 'https://ae01.alicdn.com/kf/HTB1aTaBKFXXXXXaXXXXq6xXFXXX2/Design-Solid-Womens-T-Shirt-cat-kitten-cartoon-illustration-04-Jokes-Camp-Women-T-Shirts-Slim.jpg_Q90.jpg_.webp',
+    item02Nome: 'Camisa Amarela',
     item02Preço: 5,
-}
-
-
-let item01 = {
-    imagem: 'https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    descriçao: 'Lorem ipsum, dolor sit amet consectetur adipisicing.',
-    preço: 'R$5'
 }
 
 let addremove = {
@@ -23,7 +16,7 @@ let addremove = {
     remover02: '-',
     quantidade02: 0,
     adicionar02: '+'
-}
+}//adicionar ou remover a quantidade dos produtos. O numero na propriedade representa o item
 
 
 
@@ -31,32 +24,34 @@ let addremove = {
 
 document.getElementById('root').innerHTML = `
     <div class="container">
-        <div class='item01'>
+        <div class='produtos'>
             <img src="${produtos.item01Imagem}">
             <p id="p1">${produtos.item01Nome}</p>
             <p id="p2">R$ ${produtos.item01Preço}</p>
-            <button class="addcar" id='addcar01' onclick='additem01()'>Adicionar ao carrinho</button>
+            <button class="addAoCarrinho" id='addcar01' onclick='additem01()'>Adicionar ao carrinho</button>
         </div>
 
-        <div class='item02'>
+        
+        <div class='produtos'>
             <img src="${produtos.item02Imagem}">
             <p id="p1">${produtos.item02Nome}</p>
             <p id="p2">R$ ${produtos.item02Preço}</p>
-            <button class="addcar" id='addcar02' onclick='additem02()'>Adicionar ao carrinho</button>
+            <button class="addAoCarrinho" id='addcar02' onclick='additem02()'>Adicionar ao carrinho</button>
         </div>
     </div>
 
-
+    
+    
     <div class="carrinho" id="opencar">
-        <div class="opencar"onclick="opencarCSS()">
+        <div class="icon-openCar"onclick="opencarCSS()">
             <img src="imagens/mais.png">
         </div>
 
-        <div id='item01'></div>
+        <div id='itensAdicionados'></div>
 
-        <div class="totaldascompras">
+        <div class="totalDaCompra">
             <p>Total:</p>
-            <p id='totalOpencar'>R$ 0</p>
+            <p id='totalDaCompra'>R$ 0</p>
         </div>
     </div>
     `
@@ -64,11 +59,10 @@ document.getElementById('root').innerHTML = `
 
 
 
-
 function additem01(){
     addremove.quantidade01 = 1
 
-    document.getElementById('item01').innerHTML +=
+    document.getElementById('itensAdicionados').innerHTML +=
     `
         <div class='itens'>
             <p>
@@ -95,15 +89,13 @@ function additem01(){
 
     document.getElementById('addcar01').onclick = null
 
-    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
-
-}
-
+    totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+}//add o primeiro produto no carrinho
 
 function additem02(){
     addremove.quantidade02 = 1
 
-    document.getElementById('item01').innerHTML += 
+    document.getElementById('itensAdicionados').innerHTML += 
     `
         <div class='itens'>
             <p>
@@ -129,10 +121,8 @@ function additem02(){
 
     document.getElementById('addcar02').onclick = null
 
-    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
-}
-
-
+    totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+}//add o segundo produto no carrinho
 
 
 
@@ -143,24 +133,26 @@ function removequantidade01(){
 
     textQuantidadeUm.innerHTML = `${addremove.quantidade01}`
 
-    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+    totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
 
     if(addremove.quantidade01 <= 1){
         addremove.quantidade01 = 1
         textQuantidadeUm.innerHTML = `${addremove.quantidade01}`
-        totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+        totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
     }
 
     
-}
+}//remover o primeiro produto no carrinho
 
 function addquantidade01(){
     addremove.quantidade01 ++
 
     textQuantidadeUm.innerHTML = `${addremove.quantidade01}`
 
-    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
-}
+    totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+}//add o primeiro produto no carrinho
+
+
 
 
 
@@ -169,22 +161,23 @@ function removequantidade02(){
 
     textQuantidadeDois.innerHTML = `${addremove.quantidade02}`
 
-    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+    totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
 
     if(addremove.quantidade02 <= 1){
         addremove.quantidade02 = 1
         textQuantidadeDois.innerHTML = `${addremove.quantidade02}`
-        totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+        totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
     }
-}
+}//remover o segundo produto no carrinho
 
 function addquantidade02(){
     addremove.quantidade02 ++
 
     textQuantidadeDois.innerHTML = `${addremove.quantidade02}`
 
-    totalOpencar.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
-}
+    totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
+}//add o segundo produto no carrinho
+
 
 
 
@@ -193,4 +186,4 @@ function opencarCSS(){
     let opencar = document.getElementById('opencar')
 
     opencar.classList.toggle('open')
-}
+}//função pra abrir o carrinho
