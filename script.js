@@ -110,7 +110,7 @@ function additem01(){
     document.getElementById('itensAdicionados').innerHTML +=
     `
         <div class='itens' id='item01' onclick='removeritem01()'>
-        <img src="https://cdn-icons.flaticon.com/png/512/657/premium/657059.png?token=exp=1651177206~hmac=de81151b7477a033724264a121f6d0ad">
+        <img src="imagens/mais.png">
 
             <p>
                 ${produtos.item01Nome}
@@ -153,7 +153,7 @@ function additem02(){
     document.getElementById('itensAdicionados').innerHTML += 
     `
         <div class='itens' id='item02' onclick='removeritem02()'>
-        <img src="https://cdn-icons.flaticon.com/png/512/657/premium/657059.png?token=exp=1651177206~hmac=de81151b7477a033724264a121f6d0ad">
+        <img src="imagens/mais.png">
 
             <p>
                 ${produtos.item02Nome}
