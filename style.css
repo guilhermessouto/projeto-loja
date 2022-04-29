@@ -198,8 +198,8 @@ nav a{margin: 0 10px;
         left: 0;
         width: 99.5%;
         border: 1px solid black;
-        padding-right: 0;
-        padding-left: 0;}
+        padding-right: 0px;
+        padding-left: 0px;}
 
     .container{margin-top: 30px;}
 
