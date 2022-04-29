@@ -1,41 +1,60 @@
 *{margin: 0;
     padding: 0;
-    text-decoration: none;
-    overflow: hidden;}
+    text-decoration: none;}
 
 
-body{background-color: dimgray;}
+body{background-color: dimgray;
+    overflow-y: hidden;}
 
 
 
 /*introduçao*/
-.intro{background-color: white;
-    position: absolute;
+.intro{position: absolute;
     inset: 0;
     height: 100vh;
     transition: .6s;}
 
 .header-intro{background-image: url(https://img.freepik.com/fotos-gratis/textura-grunge-com-tinta-preta_125540-899.jpg?w=900&t=st=1651049963~exp=1651050563~hmac=fb3e0b7b18d069ba6e549a6f7580e1d14a2a061c0b0aa0da11c2bc3b7ec238fd);
     color: white;
-    text-align: center;
-    padding: 20px 0;}
-
-.container-intro{background-image: url(https://img.freepik.com/free-photo/high-fashion-look-glamor-portrait-beautiful-sexy-stylish-caucasian-young-woman-model-black-cloth_158538-1965.jpg?w=2000);
-    background-size: cover;
-    height: 90vh;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     width: 100%;
-    margin: auto;}
+    z-index: 1000;}
+
+.header-intro img{width: 25px;
+    margin: 0 30px;
+    cursor: pointer;}
+
+
+
+
+.container-intro{background-image: url(imagens/intro-img.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgb(255, 255, 255);
+    margin-top: 77px;
+    height: calc(100vh - 77px);
+    width: 100%;
+    position: absolute;
+    z-index: 1000;}
+
 
 .container-text{position: relative;
     top: 30%;
     width: 80%;
-    margin: auto;}
+    margin: auto;
+    color: #D92B14;}
 
 .container-text h1{font-size: 3em;
     margin-bottom: 18px;}
 
 .container-text p{font-size: 1.3em;
-margin-bottom: 25px;}
+    font-weight: bold;
+    margin-bottom: 25px;}
 
 .container-text button{font-size: 1em;
     padding: 15px 50px;
@@ -44,8 +63,76 @@ margin-bottom: 25px;}
     color: white;
     cursor: pointer;}
 
-.openshop{height: 0;}
+.openshop{height: 0;
+    overflow: hidden}
 
+
+
+
+
+@media(max-width: 850px){
+    .container-intro{background-image: url(imagens/intro-img1.webp);}
+}
+
+@media(max-width: 680px){
+    .container-intro{background-size: cover;}
+
+    .container-text{text-align: center;}
+
+    .container-text p{text-shadow: 0 0 3px black;}
+}
+    
+
+
+
+
+
+.menu{position: absolute;
+    left: 29px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 18px;
+    cursor: pointer;
+    padding: 10px;}
+
+.menu .line{height: 2px;
+    background-color: white;
+    position: relative;}
+
+
+.navigation{background-color: black;
+    position: absolute;
+    top: 53px;
+    left: -37px;
+    width: 200px;
+    height: 0;
+    visibility: hidden;
+    transition: .3s;
+    overflow: hidden;}
+
+.navigation a{display: block;
+    color: white;
+    padding: 5px;
+    margin: 5px 36px;
+    font-size: 1.2em;}
+
+
+
+/*config de quando o menu for aberto*/
+.openmenu #line-1{transition: .3s;
+    transform: rotate(42deg);
+    top: 8px;}
+
+.openmenu #line-2{display: none;}
+
+.openmenu #line-3{transition: .3s;
+    transform: rotate(138deg);
+    bottom: 8px;}
+
+.openmenu .navigation{height: 120px;
+    visibility: visible;}
 
 
 
@@ -74,6 +161,13 @@ nav a{margin: 0 10px;
     color: white;
     font-size: 1.1em;}
 
+@media(max-width: 850px){
+    .menu{display: flex;}
+
+
+    nav a{display: none;}
+}
+
 
 /*box do carrinho*/
 .carrinho{background-color: rgb(247, 247, 247);
@@ -96,10 +190,31 @@ nav a{margin: 0 10px;
 
 
 
+@media(max-width: 580px){
+    .navigation{top: 92px;}
+
+    header input{position: absolute;
+        top: 67px;
+        left: 0;
+        width: 99.5%;
+        border: 1px solid black;
+        padding-right: 0;
+        padding-left: 0;}
+
+    .container{margin-top: 30px;}
+
+    .carrinho{top: 107px;
+        right: 0;
+        border-top: none;}
+
+}
+
+
 
 
 /*container que recebe os produtos*/
-.container{display: flex;}
+.container{display: flex;
+    flex-wrap: wrap;}
 
 
 
@@ -110,8 +225,7 @@ nav a{margin: 0 10px;
     background-color: darkgray;
     padding: 10px;}
 
-.produtos img{width: 100%;
-    height: 250px;}
+.produtos img{height: 250px;}
 
 #p1{margin: 10px 0;}
 
@@ -142,19 +256,25 @@ nav a{margin: 0 10px;
     margin: 5px 0;
     background-color: rgb(226, 222, 222);}    
 
+.itens img{width: 17px;
+    position: absolute;
+    right: 10px;
+    margin-top: 3px;
+    cursor: pointer;}
 
 
 
     
 /*config de quando o carrinho for aberto*/
-.opencar{height: 500px;
-    overflow: hidden;}
+.opencar{height: 350px;
+    border: 1px solid black;
+    border-top: none;}
     
 .opencar .totalDaCompra{display: flex;
     justify-content: space-between;
     padding: 10px;
-    width: 93.5%;
-    border: 1px black solid;
+    width: 94%;
+    border-top: 1px black solid;
     position: absolute;
     right: 0;
     bottom: 0;}

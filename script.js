@@ -25,7 +25,15 @@ let addremove = {
 document.getElementById('root').innerHTML = `
     <div class="intro" id="intro">
         <div class="header-intro">
+            <a href="https://github.com/guilhermessouto" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png">
+            </a>
+
             <h1>Logo</h1>
+
+            <a href="https://www.linkedin.com/in/guilherme-silveira-567b99211/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png">
+            </a>
         </div>
 
         <div class="container-intro">
@@ -39,14 +47,25 @@ document.getElementById('root').innerHTML = `
 
 
     <header>
-        <h1>Logo</h1>
+        <div class='menu' id='menu' onclick='openMenu()'>
+            <div class='line' id='line-1'></div>
+            <div class='line' id='line-2'></div>
+            <div class='line' id='line-3'></div>
 
+            <div class='navigation'>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Login</a>
+            </div>
+        </div>
+
+        <h1>Logo</h1>
         <input type="text" placeholder="O que você procura hoje ?">
 
         <nav>
             <a href="#">About</a>
             <a href="#">Contact</a>
-            <a href="#" id="login">Login</a>
+            <a href="#">Login</a>
 
             <div class="icon-openCar"onclick="opencarCSS()">
                     <img src="https://www.grupopecini.com.br/images/carrinho.png">
@@ -62,6 +81,7 @@ document.getElementById('root').innerHTML = `
             </div>
         </nav>
     </header>
+
 
     <div class="container">
         <div class='produtos'>
@@ -89,7 +109,9 @@ function additem01(){
 
     document.getElementById('itensAdicionados').innerHTML +=
     `
-        <div class='itens'>
+        <div class='itens' id='item01' onclick='removeritem01()'>
+        <img src="https://cdn-icons.flaticon.com/png/512/657/premium/657059.png?token=exp=1651177206~hmac=de81151b7477a033724264a121f6d0ad">
+
             <p>
                 ${produtos.item01Nome}
             </p>
@@ -112,17 +134,27 @@ function additem01(){
         </div>
     `
 
-    document.getElementById('addcar01').onclick = null
-
     totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
 }//add o primeiro produto no carrinho
+
+function removeritem01(){
+    let item01 = document.getElementById('item01')
+
+    if (item01.parentNode) {
+    item01.parentNode.removeChild(item01);  
+    }
+}
+
+
 
 function additem02(){
     addremove.quantidade02 = 1
 
     document.getElementById('itensAdicionados').innerHTML += 
     `
-        <div class='itens'>
+        <div class='itens' id='item02' onclick='removeritem02()'>
+        <img src="https://cdn-icons.flaticon.com/png/512/657/premium/657059.png?token=exp=1651177206~hmac=de81151b7477a033724264a121f6d0ad">
+
             <p>
                 ${produtos.item02Nome}
             </p>
@@ -144,10 +176,17 @@ function additem02(){
         </div>
     `
 
-    document.getElementById('addcar02').onclick = null
-
     totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
 }//add o segundo produto no carrinho
+
+function removeritem02(){
+    let item02 = document.getElementById('item02')
+
+    if (item02.parentNode) {
+    item02.parentNode.removeChild(item02);  
+    }
+}
+
 
 
 
@@ -176,7 +215,6 @@ function addquantidade01(){
 
     totalDaCompra.innerHTML = `R$ ${(addremove.quantidade02 * 5) + (addremove.quantidade01 * 5)}`
 }//add o primeiro produto no carrinho
-
 
 
 
@@ -214,10 +252,19 @@ function opencarCSS(){
 }//função pra abrir o carrinho
 
 
-
-
 function openShop(){
     let openShop = document.getElementById('intro')
 
     openShop.classList.add('openshop')
+
+    document.body.style = 'overflow-y: visible'
 }//funçao pra fechar a intro
+
+
+function openMenu(){
+    let openMenu = document.getElementById('menu')
+
+    openMenu.classList.toggle('openmenu')
+}//funçao pra abrir o fechao
+
+
