@@ -109,8 +109,10 @@ function additem01(){
 
     document.getElementById('itensAdicionados').innerHTML +=
     `
-        <div class='itens' id='item01' onclick='removeritem01()'>
-        <img src="imagens/mais.png">
+        <div class='itens' id='item01'>
+            <div onclick='removeritem01()'>
+                <img src="imagens/mais.png">
+            </div>
 
             <p>
                 ${produtos.item01Nome}
@@ -152,8 +154,10 @@ function additem02(){
 
     document.getElementById('itensAdicionados').innerHTML += 
     `
-        <div class='itens' id='item02' onclick='removeritem02()'>
-        <img src="imagens/mais.png">
+        <div class='itens' id='item02'>
+            <div onclick='removeritem02()'>
+                <img src="imagens/mais.png">
+            </div>
 
             <p>
                 ${produtos.item02Nome}
